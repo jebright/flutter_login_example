@@ -5,25 +5,6 @@ import 'package:flutter_login_example/signin_page.dart';
 import 'home_page.dart';
 
 class BuilderPage extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return new MaterialApp(
-      title: 'Flutter Login Demo',
-      theme: new ThemeData(
-        primarySwatch: Colors.orange,
-      ),
-      home: new MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  @override
-  _MyHomePageState createState() => new _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
   final StreamController<AuthenticationState> _streamController =
       new StreamController<AuthenticationState>();
 
@@ -45,12 +26,5 @@ class _MyHomePageState extends State<MyHomePage> {
           final state = snapshot.data;
           return buildUi(context, state);
         });
-  }
-
-  @override
-  void dispose() {
-    print("disposing of stream controller...");
-    _streamController.close();
-    super.dispose();
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-//import 'package:flutter_login_example/authentication_service.dart';
+import 'package:flutter_login_example/authentication_service.dart';
 import 'dart:async';
 import 'authentication_state.dart';
 
@@ -12,14 +12,14 @@ class SignInPage extends StatelessWidget {
 
   signIn() async {
     _streamController.add(AuthenticationState.authenticated());
-    // var result =
-    //     await _authenticationService.authenticate("username", "password");
-    // if (result) {
-    //   _streamController.add(AuthenticationState.authenticated());
-    // }
-    // else {
-    //   _streamController.add(AuthenticationState.failed());
-    // }
+    var result =
+        await _authenticationService.authenticate("username", "password");
+    if (result) {
+      _streamController.add(AuthenticationState.authenticated());
+    }
+    else {
+      _streamController.add(AuthenticationState.failed());
+    }
   }
 
   @override
