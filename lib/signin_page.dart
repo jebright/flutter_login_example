@@ -6,7 +6,7 @@ import 'authentication_state.dart';
 
 class SignInPage extends StatelessWidget {
   final StreamController<AuthenticationState> _streamController;
-  //AuthenticationService _authenticationService = new AuthenticationService();
+  AuthenticationService _authenticationService = new AuthenticationService();
 
   SignInPage(this._streamController);
 
